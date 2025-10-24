@@ -86,7 +86,7 @@ def load_model():
 st.sidebar.title("⚙️ Configuration")
 confidence = st.sidebar.slider(
     "Confidence Threshold",
-    0.1, 1.0, 0.4, 0.05,
+    0.1, 1.0, 0.3, 0.05,
     help="Higher = fewer false alarms, Lower = find more garbage"
 )
 
@@ -303,3 +303,4 @@ st.markdown(
     "</div>",
     unsafe_allow_html=True
 )
+
