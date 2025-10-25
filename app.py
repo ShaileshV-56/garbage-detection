@@ -97,7 +97,7 @@ if model:
 # ===================================================
 # HEADER
 # ===================================================
-st.markdown('<h1 class="main-header">🗑️ Garbage Detection on Streets</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-header">Garbage🗑️ Detection on Streets</h1>', unsafe_allow_html=True)
 st.markdown("### Detect garbage in images and videos using YOLOv8")
 
 # ===================================================
@@ -303,4 +303,5 @@ st.markdown(
     "</div>",
     unsafe_allow_html=True
 )
+
 
