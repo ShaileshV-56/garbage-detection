@@ -5,6 +5,7 @@ import tempfile
 import os
 from PIL import Image
 from ultralytics import YOLO
+import time
 
 # ===================================================
 # PAGE CONFIGURATION
@@ -15,6 +16,27 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded"
 )
+
+# ===================================================
+# VISITOR COUNTER SETUP
+# ===================================================
+def get_visitor_count():
+    """Get or initialize visitor count"""
+    if 'visitor_count' not in st.session_state:
+        st.session_state.visitor_count = 0
+    return st.session_state.visitor_count
+
+def increment_visitor_count():
+    """Increment visitor count (simulated)"""
+    if 'visitor_count' not in st.session_state:
+        st.session_state.visitor_count = 1
+    else:
+        st.session_state.visitor_count += 1
+
+# Initialize or increment visitor count
+if 'visitor_initialized' not in st.session_state:
+    increment_visitor_count()
+    st.session_state.visitor_initialized = True
 
 # ===================================================
 # CUSTOM STYLING
@@ -58,6 +80,15 @@ st.markdown("""
         border-radius: 10px;
         text-align: center;
         margin: 0.5rem;
+    }
+    .visitor-counter {
+        background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        color: white;
+        padding: 0.8rem;
+        border-radius: 10px;
+        text-align: center;
+        margin: 1rem 0;
+        border: 2px solid #FF4757;
     }
     .center-content {
         display: flex;
@@ -294,15 +325,24 @@ with tab3:
         st.error("❌ Model failed to load")
 
 # ===================================================
-# FOOTER
+# VISITOR COUNTER & FOOTER
 # ===================================================
 st.markdown("---")
+
+# Visitor Counter
+visitor_count = get_visitor_count()
+st.markdown(f"""
+<div class="visitor-counter">
+    <h3>👥 Website Visitors</h3>
+    <p style="font-size: 2rem; margin: 0;">{visitor_count}</p>
+    <p style="margin: 0; font-size: 0.9rem;">Unique visitors exploring garbage detection</p>
+</div>
+""", unsafe_allow_html=True)
+
+# Footer
 st.markdown(
-    "<div style='text-align: center; color: #00A884;'>"
+    "<div style='text-align: center; color: #00A884; margin-top: 2rem;'>"
     "<b>Built with ❤️ using YOLOv8 by Shailesh V</b>"
     "</div>",
     unsafe_allow_html=True
 )
-
-
-
