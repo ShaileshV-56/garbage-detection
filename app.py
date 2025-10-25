@@ -299,9 +299,10 @@ with tab3:
 st.markdown("---")
 st.markdown(
     "<div style='text-align: center; color: #00A884;'>"
-    "<b>Built with ❤️ using Streamlit & YOLOv8 by Shailesh V</b>"
+    "<b>Built with ❤️ using YOLOv8 by Shailesh V</b>"
     "</div>",
     unsafe_allow_html=True
 )
+
 
 
