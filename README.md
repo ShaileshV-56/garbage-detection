@@ -37,10 +37,11 @@ Real-time garbage detection system for street-level waste monitoring using YOLOv
 
 ```bash
 pip install ultralytics torch torchvision
+```
 
 💡 Usage
 Training
-
+```
 from ultralytics import YOLO
 
 # Load pretrained model
@@ -54,8 +55,9 @@ results = model.train(
     batch=16,
     project='StreetGarbageDetection'
 )
-
+```
 Inference
+```
 # Detect garbage in images
 model = YOLO('best.pt')
 results = model.predict(
@@ -63,12 +65,14 @@ results = model.predict(
     conf=0.25,
     save=True
 )
+```
 
 Validation
+```
 # Evaluate model performance
 metrics = model.val(data='garbage.yaml')
 print(f"mAP@50: {metrics.box.map50:.3f}")
-
+```
 🎯 Applications
 Street cleanliness monitoring
 
