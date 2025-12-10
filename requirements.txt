@@ -1,6 +1,7 @@
+python-version: 3.11  # not a pip line — ensure your venv uses Python 3.11
 streamlit>=1.28.0
 ultralytics>=8.0.0
-opencv-python-headless==4.8.1.78
+numpy>=2.1.0,<3
+opencv-python-headless>=4.8.1
 Pillow>=9.0.0
-numpy>=1.21.0
-torch>=1.7.0
+# torch: install separately using the official PyTorch instructions (see below)
